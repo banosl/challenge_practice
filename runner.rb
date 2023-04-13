@@ -6,6 +6,9 @@ require './lib/225_invert_binary_tree.rb'
 require './lib/1_two_sum.rb'
 require './lib/27_remove_element.rb'
 require './lib/2395_find_subarrays_with_equal_sum.rb'
+# require './lib/millions_of_numbers.rb'
+require './lib/snail.rb'
+require './lib/palin_sum.rb'
 
 # Pivot Index
 
@@ -51,7 +54,38 @@ require './lib/2395_find_subarrays_with_equal_sum.rb'
 
 #subarray
 
-nums = [1,2,3,4,5]
+# nums = [1,2,3,4,5]
 
-b = Subarray.find_subarrays(nums)
-binding.pry
+# b = Subarray.find_subarrays(nums)
+# binding.pry
+
+#millions of numbers
+
+# nums_1 = [1, 2, 4, 5, 8]
+# nums_2 = [2, 3, 5, 7, 9]
+# nums_3 = [1, 2, 5, 8, 9]
+
+# d = Array.new(40){ rand(1..100)}.sort
+# e = Array.new(40){ rand(1..100)}.sort
+# f = Array.new(40){ rand(1..100)}.sort
+
+
+# a = Millions.find_matches(d, e, f)
+
+# p a
+
+# snail
+
+array_matrix = [
+  [1, 2, 3, 4],
+  [5, 6, 7, 8],
+  [9, 10, 11, 12],
+  [13, 14, 15, 16]
+]
+
+b = [1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11, 10]
+a = Snail.order(array_matrix)
+puts a == b
+# # binding.pry
+
+# p Palin.first_25
