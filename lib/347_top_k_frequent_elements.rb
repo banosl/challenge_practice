@@ -14,5 +14,5 @@ def top_k_frequent(nums, k)
   hash.sort_by{|k, v| v}.reverse.to_h.keys[0..(k - 1)]
 end
 
-a = top_k_frequent(nums, k)
-p a
+b = top_k_frequent(nums, k)
+p b
