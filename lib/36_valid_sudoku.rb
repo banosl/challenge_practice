@@ -1,7 +1,7 @@
 require 'pry'
 
 board1 = 
-[["5","5",".",".","7",".",".",".","."],
+[["5","3",".",".","7",".",".",".","."],
 ["6",".",".","1","9","5",".",".","."],
 [".","9","8",".",".",".",".","6","."],
 [".","6",".",".",".",".","2","8","."],
@@ -35,7 +35,8 @@ class Board
   def is_valid_sudoku
     @resp = true
     rows_valid
-    binding.pry
+    columns_valid
+    # binding.pry
     @resp
   end
   
@@ -47,17 +48,13 @@ class Board
   
   def columns_valid
     counter = 0
-    column = []
     
     until counter == 9
+      column = []
       @board.each do |row|
-        column << row[0]
+        column << row[counter]
       end
-      if validate_array(column, @val)
-        return true
-      else
-        return false
-      end
+      validate_array(column)
       counter += 1
     end
   end
@@ -72,4 +69,6 @@ class Board
 end
   
 a = Board.new(board1)
+b = Board.new(board2)
 p a.is_valid_sudoku
+p b.is_valid_sudoku
