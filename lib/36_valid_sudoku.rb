@@ -4,10 +4,10 @@ board1 =
 [["5","3",".",".","7",".",".",".","."],
 ["6",".",".","1","9","5",".",".","."],
 [".","9","8",".",".",".",".","6","."],
-[".","6",".",".",".",".","2","8","."],
 ["8",".",".",".","6",".",".",".","3"],
 ["4",".",".","8",".","3",".",".","1"],
 ["7",".",".",".","2",".",".",".","6"],
+[".","6",".",".",".",".","2","8","."],
 [".",".",".","4","1","9",".",".","5"],
 [".",".",".",".","8",".",".","7","9"]]
 
@@ -34,9 +34,11 @@ class Board
 
   def is_valid_sudoku
     @resp = true
+
     rows_valid
     columns_valid
-    # binding.pry
+    boxes_valid
+    
     @resp
   end
   
@@ -56,6 +58,27 @@ class Board
       end
       validate_array(column)
       counter += 1
+    end
+  end
+
+  def boxes_valid
+    start = [0, 3, 6]
+    boxes = []
+
+    3.times do
+      start.each do |index|
+        box = []
+        board.first(3).each do |row|
+          box << row.slice(index, 3)
+        end
+        boxes << box.flatten
+      end
+
+      board.rotate!(3)
+    end
+
+    boxes.each do |box|
+      validate_array(box)
     end
   end
   
