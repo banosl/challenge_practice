@@ -22,7 +22,7 @@ nums3 = [5, 1, 2]
 nums4 = [2, 1, 2, 3, 1, 1, 1, 1, 1, 2, 4]
 
 def moves_needed(nums)
-  ex = nums.count - 1
+  ext = nums.count - 1
 
   index = 0
   count = 0
@@ -30,7 +30,7 @@ def moves_needed(nums)
   loop do 
     index += nums[index] 
     count += 1
-    if index > ex
+    if index > ext
       return count
     end
   end

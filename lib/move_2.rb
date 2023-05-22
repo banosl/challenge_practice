@@ -51,8 +51,10 @@ end
 
 nums3 = [5, 1, 2]
 nums4 = [2, 1, 2, 3, 1, 1, 1, 1, 1, 2, 4]
+nums5 = [3, 5, 1, 1, 8, 1, 1, 1, 1, 1, 2, 5, 1]
 
 p moves_needed(nums1)
 p moves_needed(nums2)
 p moves_needed(nums3)
 p moves_needed(nums4)
+p moves_needed(nums5)
