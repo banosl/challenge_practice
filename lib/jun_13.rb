@@ -15,7 +15,6 @@ array2 = [1, 1, 1, 2, 2, 2, 4, 5, 6, 6, 6, 7, 7]
 
 
 def number_of_triplets(array)
-  # simple = array.uniq
   triplets = 0
 
   array.uniq.each do |num|
