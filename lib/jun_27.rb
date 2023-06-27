@@ -10,6 +10,14 @@ require 'pry'
 # I will need a cost variable and a variable for holding what the person is paying.
 #coins could be part of a class money so that I have access to them as an instance variable
 
+#for the first part I will want the method to subtract the whole number and set that aside for $
+#Then i'll have it take the cents and maybe go backwards in checking the coins
+#like how many .25 'fit' in the remainder?
+# after that is determined, subtract that from the remainer
+#then have it check for dimes, subtract those
+#then check for nickels, subtract those
+#finally check how many pennies fit in the last bit
+
 class Money
   attr_reader :coins, :cost, :payment
 
@@ -28,16 +36,6 @@ class Money
     @payment = payment
     @currency_change = Hash.new{}
   end
-
-  
-
-#for the first part I will want the method to subtract the whole number and set that aside for $
-#Then i'll have it take the cents and maybe go backwards in checking the coins
-#like how many .25 'fit' in the remainder?
-# after that is determined, subtract that from the remainer
-#then have it check for dimes, subtract those
-#then check for nickels, subtract those
-#finally check how many pennies fit in the last bit
 
   def make_change
     remainder = @payment - @cost
@@ -62,6 +60,7 @@ class Money
     @bills.reverse_each do |bill, value|
       times_divisible = whole_num/value
       @currency_change[bill] = times_divisible
+      whole_num -= (value * times_divisible)
     end
   end
 
@@ -74,5 +73,7 @@ cost1 = 2.18
 payment1 = 5.00
 
 transaction1 = Money.new(cost1, payment1)
+transaction2 = Money.new(132.26, 150)
 
 p transaction1.make_change
+p transaction2.make_change
