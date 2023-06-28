@@ -1,5 +1,4 @@
 require 'pry'
-require 'rspec'
 
 class Money
   attr_reader :coins, :cost, :payment
