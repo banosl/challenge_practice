@@ -42,8 +42,8 @@ class Money
     decimal = (remainder % 1).round(2)
     whole_num = remainder.to_i
 
-    decide_coins(decimal)
     decide_bills(whole_num)
+    decide_coins(decimal)
 
     @currency_change.reject!{|k,v| v == 0}
   end
@@ -73,7 +73,13 @@ cost1 = 2.18
 payment1 = 5.00
 
 transaction1 = Money.new(cost1, payment1)
-transaction2 = Money.new(132.26, 150)
 
-p transaction1.make_change
+p "Cost: #{transaction1.cost}"
+p "Payment: #{transaction1.payment}"
+p "Return: #{transaction1.make_change}"
+p ""
+transaction2 = Money.new(132.26, 150)
 p transaction2.make_change
+p "Cost: #{transaction2.cost}"
+p "Payment: #{transaction2.payment}"
+p "Return: #{transaction2.make_change}"
