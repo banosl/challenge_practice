@@ -17,7 +17,7 @@ RSpec.describe Money do
     expect(calculator.make_change).to eq(expected)
   end
 
-  xit 'can calculate when only dollars are due' do
+  it 'can calculate when only dollars are due' do
     total_due   = '$2.00'
     amount_paid = '$10.00'
     calculator  = Money.new(total_due, amount_paid)
@@ -40,7 +40,7 @@ RSpec.describe Money do
     expect(calculator.make_change).to eq(expected)
   end
 
-  xit 'can calculate when no change is due' do
+  it 'can calculate when no change is due' do
     total_due   = '$2.00'
     amount_paid = '$2.00'
     calculator  = Money.new(total_due, amount_paid)
@@ -49,7 +49,7 @@ RSpec.describe Money do
     expect(calculator.make_change).to eq(expected)
   end
 
-  xit 'can calculate when dollars and cents are due' do
+  it 'can calculate when dollars and cents are due' do
     total_due   = '$2568.75'
     amount_paid = '$3000.25'
     calculator  = Money.new(total_due, amount_paid)
@@ -72,7 +72,7 @@ RSpec.describe Money do
     expect(calculator.make_change).to eq(expected)
   end
 
-  xit 'can calculate penny versus pennies' do
+  it 'can calculate penny versus pennies' do
     total_due   = '$1.99'
     amount_paid = '$2.00'
     calculator  = Money.new(total_due, amount_paid)

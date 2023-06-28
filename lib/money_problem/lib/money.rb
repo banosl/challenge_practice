@@ -58,13 +58,17 @@ class Money
       elsif value > 1 && denomination == :penny
         @change_message << "#{value} pennies"
       else
-        @change_message << "#{value} in #{denomination}s"
+        @change_message << "#{value} #{denomination}s"
       end
     end
     @change_message
   end
 
   def write_message(remainder)
-    p "Your change is $#{remainder} - You are due #{@change_message.join(" and ")}"
+    if remainder == 0
+      p "No Change Due"
+    else
+      p "Your change is $#{sprintf("%.2f", remainder)} - You are due #{@change_message.join(" and ")}"
+    end
   end
 end
